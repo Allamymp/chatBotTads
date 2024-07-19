@@ -28,16 +28,18 @@ services:
     ports:
       - "6379:6379"
 
-  app:
-    build: .
-    environment:
-      - DB_USERNAME=admin_tads
-      - DB_PASSWORD=p@ssw0rdT4ad5
-    depends_on:
-      - db
-      - redis
-    ports:
-      - "8080:8080"
+ # app:
+  #  build: .
+   # environment:
+  #    - DB_USERNAME=mysql_tads_admin
+  #    - DB_PASSWORD=mysql_tads_password
+  #    - ENCRYPTION_KEY=your_16_char_key
+  #    - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/tads_db?allowPublicKeyRetrieval=true&useSSL=false
+  #  depends_on:
+  #    - db
+  #    - redis
+  #  ports:
+  #    - "18080:8080"
 
 volumes:
   dbbase:

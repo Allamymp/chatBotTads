@@ -13,18 +13,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Sector {
+public class Information {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message = "Name is mandatory")
     @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters")
+    @Column(unique = true)
     private String name;
     @NotBlank(message = "Description is mandatory")
     private String description;
 
 
-    public Sector(String name, String description) {
+    public Information(String name, String description) {
         this.name = name;
         this.description = description;
 

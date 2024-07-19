@@ -10,8 +10,8 @@ import org.springframework.web.context.request.WebRequest;
 public class GlobalExceptionHandler {
 
     // Manipulador para SectorNotFoundException
-    @ExceptionHandler(SectorNotFoundException.class)
-    public ResponseEntity<?> handleSectorNotFoundException(SectorNotFoundException ex, WebRequest request) {
+    @ExceptionHandler(InformationNotFoundException.class)
+    public ResponseEntity<?> handleSectorNotFoundException(InformationNotFoundException ex, WebRequest request) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 

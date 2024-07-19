@@ -1,31 +1,31 @@
 package com.example.chatbottads.util;
 
-import com.example.chatbottads.dto.ReturnSectorDTO;
-import com.example.chatbottads.model.Sector;
+import com.example.chatbottads.dto.ReturnInformationDTO;
+import com.example.chatbottads.model.Information;
 
 public class DTOFactory {
 
-    public static ReturnSectorDTO fromEntity(Sector sector) {
-        if (sector == null) {
+    public static ReturnInformationDTO fromEntity(Information information) {
+        if (information == null) {
             return null;
         }
-        String encryptedId = EncryptionUtil.encrypt(sector.getId());
-        return new ReturnSectorDTO(
+        String encryptedId = EncryptionUtil.encrypt(information.getId());
+        return new ReturnInformationDTO(
                 encryptedId,
-                sector.getName(),
-                sector.getDescription()
+                information.getName(),
+                information.getDescription()
         );
     }
 
-    public static Sector toEntity(ReturnSectorDTO dto) {
+    public static Information toEntity(ReturnInformationDTO dto) {
         if (dto == null) {
             return null;
         }
         Long decryptedId = EncryptionUtil.decrypt(dto.id());
-        Sector sector = new Sector();
-        sector.setId(decryptedId);
-        sector.setName(dto.name());
-        sector.setDescription(dto.description());
-        return sector;
+        Information information = new Information();
+        information.setId(decryptedId);
+        information.setName(dto.name());
+        information.setDescription(dto.description());
+        return information;
     }
 }
